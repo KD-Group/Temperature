@@ -1,0 +1,28 @@
+environment:
+  PYTHON: "C:\\Python36"
+  PYPIPASSWORD:
+    secure: PIkaT8nR3rGAsDFAuwFA4A==
+
+install:
+  - SET "PYTHONHOME=%PYTHON%"
+  - SET "PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - c:\python36\python.exe -m pip install -U pip wheel setuptools twine
+  - pip install -r requirements-dev.txt
+  - python setup.py install
+
+before_test:
+  - python --version
+
+test_script:
+  - pycodestyle . --max-line-length=120 --exclude temperature
+  - python -m pytest
+
+build_script:
+  - "[ -e dist ] && rm dist -rf || true"
+  - python setup.py sdist
+
+deploy_script:
+  - "echo [pypi] > %USERPROFILE%\\.pypirc"
+  - "echo username: WingC >> %USERPROFILE%\\.pypirc"
+  - "echo password: %PYPIPASSWORD% >> %USERPROFILE%\\.pypirc"
+  - if "%APPVEYOR_REPO_TAG%"=="true" ( twine upload dist/* ) else ( echo "Not deploying because not a tagged commit." )
