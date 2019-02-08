@@ -9,7 +9,7 @@ temperature_module = Extension('_temperature', sources=['temperature/temp_wrap.c
                                libraries=['Temperature'])
 
 setup(name='temperature',
-      version='0.6',
+      version='0.7',
       author="SF Zhou WingC",
       author_email="1018957763@qq.com",
       url="https://gitlab.com/KD-Group/temperature",
@@ -27,7 +27,6 @@ setup(name='temperature',
       ext_modules=[temperature_module],
       packages=find_packages(),
       data_files=[('', ['lib/Temperature.dll']),
-                  ('', ['lib/Temperature.lib']),
                   ('', ['temperature/temp.h', 'temperature/Temperature.h', 'temperature/temp_wrap.cxx'])],
       python_requires='>=3',
       )
