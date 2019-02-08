@@ -9,7 +9,7 @@ temperature_module = Extension('_temperature', sources=['temperature/temp_wrap.c
                                libraries=['Temperature'])
 
 setup(name='temperature',
-      version='0.5',
+      version='0.6',
       author="SF Zhou WingC",
       author_email="1018957763@qq.com",
       url="https://gitlab.com/KD-Group/temperature",
