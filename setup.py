@@ -26,6 +26,7 @@ setup(name='temperature',
       description="Python module for temperature",
       ext_modules=[temperature_module],
       packages=find_packages(),
-      data_files=[('', ['lib/Temperature.dll'])],
+      data_files=[('', ['lib/Temperature.dll']),
+				  ('', ['temperature/temp.h', 'temperature/Temperature.h', 'temperature/temp_wrap.cxx'])],
       python_requires='>=3',
       )
