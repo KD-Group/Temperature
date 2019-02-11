@@ -19,7 +19,7 @@ test_script:
 
 build_script:
   - "[ -e dist ] && rm dist -rf || true"
-  - python setup.py sdist
+  - python setup.py bdist_wheel
 
 deploy_script:
   - "echo [pypi] > %USERPROFILE%\\.pypirc"
