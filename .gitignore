@@ -1,5 +1,6 @@
 # Custom ignore
 .idea/
+cpp_build/*.exe
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

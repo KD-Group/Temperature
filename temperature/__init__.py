@@ -1,1 +1,1 @@
-from .temperature import get_temp
+from .temperature import temp

@@ -5,12 +5,10 @@ setup.py file for temperature module
 from setuptools import setup, find_packages
 from distutils.core import setup, Extension
 
-temperature_module = Extension('_temperature', sources=['temperature/temp_wrap.cxx'], library_dirs=['lib'],
-                               libraries=['Temperature'])
 
 setup(name='temperature',
-      version='0.9',
-      author="SF Zhou WingC",
+      version='1.0',
+      author="WingC, SF Zhou",
       author_email="1018957763@qq.com",
       url="https://gitlab.com/KD-Group/temperature",
 
@@ -24,10 +22,7 @@ setup(name='temperature',
       ],
 
       description="Python module for temperature",
-      ext_modules=[temperature_module],
       packages=find_packages(),
-      data_files=[('', ['lib/Temperature.dll']),
-                  ('', ['lib/Temperature.lib']),
-                  ('', ['temperature/temp.h', 'temperature/Temperature.h', 'temperature/temp_wrap.cxx'])],
+      data_files=['cpp_build/temperature.exe', 'cpp_build/Temperature.dll'],
       python_requires='>=3',
       )
