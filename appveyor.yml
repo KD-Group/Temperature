@@ -7,11 +7,13 @@ install:
   - SET "PYTHONHOME=%PYTHON%"
   - SET "PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - c:\python36\python.exe -m pip install -U pip wheel setuptools twine
+  - pip install -r requirements.txt
   - pip install -r requirements-dev.txt
-  - python setup.py install
+  - pip install scons
 
 before_test:
   - python --version
+  - scons --version
 
 test_script:
   - pycodestyle . --max-line-length=120 --exclude temperature
@@ -19,6 +21,7 @@ test_script:
 
 build_script:
   - "[ -e dist ] && rm dist -rf || true"
+  - scons -j%NUMBER_OF_PROCESSORS%
   - python setup.py bdist_wheel
 
 deploy_script:
