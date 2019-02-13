@@ -7,7 +7,7 @@ from distutils.core import setup, Extension
 
 
 setup(name='temperature',
-      version='1.1',
+      version='1.2',
       author="WingC, SF Zhou",
       author_email="1018957763@qq.com",
       url="https://gitlab.com/KD-Group/temperature",
@@ -23,6 +23,6 @@ setup(name='temperature',
 
       description="Python module for temperature",
       packages=['temperature'],
-      data_files=[('temperature', ['cpp_build/temperature.exe', 'cpp_build/Temperature.dll'])],
+      data_files=['cpp_build/temperature.exe', 'cpp_build/Temperature.dll'],
       python_requires='>=3',
       )
