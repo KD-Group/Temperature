@@ -13,13 +13,15 @@ class Temperature:
             if os.system('cd {} && scons'.format(main_path)) != 0:
                 raise self.Error("Compile C++ Temperature Error")
 
-        # try to use cpp_build/temperature.exe when developing
+        # try to find exe file in different paths
         execution_name = 'temperature.exe'
         execution_path = execution_name
         if not os.path.exists(execution_path):
             execution_path = os.path.join(main_path, execution_name)
         if not os.path.exists(execution_path):
             execution_path = os.path.join(main_path, 'cpp_build', execution_name)
+        if not os.path.exists(execution_path):
+            execution_path = os.path.join(main_path, '..', '..', execution_name)
         if os.path.exists(execution_path):
             return os.path.abspath(execution_path)
 
