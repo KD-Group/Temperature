@@ -47,8 +47,9 @@ class Temperature:
         executor.write_line(command)
         lines = executor.read_until('EOF')
 
-        temperature = -1
+        loc = locals()
         exec(lines)
+        temperature = loc['temperature']
         return temperature
 
     @property
@@ -57,5 +58,6 @@ class Temperature:
 
     class Error(RuntimeError):
         pass
+
 
 temp = Temperature()
