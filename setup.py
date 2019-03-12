@@ -7,7 +7,7 @@ from distutils.core import setup, Extension
 
 
 setup(name='temperature',
-      version='1.3',
+      version='1.4',
       author="WingC, SF Zhou",
       author_email="1018957763@qq.com",
       url="https://gitlab.com/KD-Group/temperature",
