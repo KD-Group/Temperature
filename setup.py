@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 from distutils.core import setup, Extension
 
 setup(name='temperature',
-      version='1.8',
+      version='1.9',
       author="WingC, SF Zhou",
       author_email="1018957763@qq.com",
       url="https://gitlab.com/KD-Group/temperature",
@@ -19,8 +19,8 @@ setup(name='temperature',
           'License :: OSI Approved :: GNU Affero General Public License v3',
           'Programming Language :: Python :: 3',
       ],
-      packages=["temperature"],
-      include_package_data=True,
+      packages=['temperature'],
+      data_files=[("Lib/site-packages/temperature", ['cpp_build/temperature.exe', 'cpp_build/Temperature.dll'])],
 
       description="Python module for temperature",
       python_requires='>=3',
