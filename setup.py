@@ -20,7 +20,7 @@ setup(name='temperature',
           'Programming Language :: Python :: 3',
       ],
       packages=['temperature'],
-      include_package_data=True,
+      data_files=['cpp_build/temperature.exe', 'cpp_build/Temperature.dll'],
 
       description="Python module for temperature",
       python_requires='>=3',
