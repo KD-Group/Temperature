@@ -2,11 +2,15 @@
 setup.py file for temperature module
 """
 
-from setuptools import setup, find_packages
+import shutil
 from distutils.core import setup, Extension
+from setuptools import setup, find_packages
+
+shutil.copy2("cpp_build/Temperature.dll", "temperature/Temperature.dll")
+shutil.copy2("cpp_build/temperature.exe", "temperature/temperature.exe")
 
 setup(name='temperature',
-      version='2.4',
+      version='2.5',
       author="WingC, SF Zhou",
       author_email="1018957763@qq.com",
       url="https://gitlab.com/KD-Group/temperature",
@@ -20,8 +24,7 @@ setup(name='temperature',
           'Programming Language :: Python :: 3',
       ],
       packages=['temperature'],
-      data_files=['cpp_build/temperature.exe', 'cpp_build/Temperature.dll'],
-
+      package_data={"temperature": ['*.exe', '*.dll']},
       description="Python module for temperature",
       python_requires='>=3',
       )
